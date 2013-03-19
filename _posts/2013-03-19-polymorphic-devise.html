@@ -1,0 +1,24 @@
+---
+layout: post
+title: polymorphic-devise
+---
+<p>If you have a Devise resource and want to associate it with models in your system  a good way is through <code>polymorphic: true</code>, but Devise has no hooks to handle the resource creation when passed the polymorphic type information. Polymorphic builders also work one way only from the <code>as: role</code> defining Class. By extending the RegistrationsController you can override build_resource and come out clean, still leaning on the Devise controller for the rest of the logic.</p>
+<pre>
+class Users::RegistrationsController < Devise::RegistrationsController
+  def build_resource(hash=nil)
+    hash ||= resource_params || {}
+
+    if role = create_role(hash)
+      hash.merge!(role_id: role.id)
+    end
+
+    self.resource = resource_class.new_with_session(hash, session)
+  end
+
+  def create_role(hash)
+    if type = hash[:role_type]
+      type.constantize.create
+    end
+  end
+end
+</pre>
