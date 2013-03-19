@@ -1,0 +1,38 @@
+---
+layout: post
+title: objects-on-rails-registration
+---
+
+<p>Here is a cool application of Avdi Grimm's Objects on Rails book.</p>
+
+<pre>
+class User::Registration
+  include Rails.application.routes.url_helpers
+
+  def initialize(user: nil)
+    @user = user
+    @type = @user.class.name.downcase
+  end
+
+  def incomplete?
+    @user.name.nil?
+  end
+
+  def path
+    send("edit_#{@type}_path", @user)
+  end
+end
+</pre>
+
+<p>Use it in a controller like so</p>
+
+<pre>
+def complete_registration
+  registration = User::Registration.new(current_user)
+  if registration.incomplete?
+    redirect_to(registrar.registration_path)
+  end
+end
+</pre>
+
+<p>The <code>Rails.application.routes.url_helpers</code> could also be injected to the initialize method making it easy to test without Rails, though I'm not sure that is a good idea.</p>
