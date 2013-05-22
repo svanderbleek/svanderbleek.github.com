@@ -3,17 +3,21 @@
   <head>
     <link rel="stylesheet" type="text/css"
       href="style.css">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
-    <div class="author-info left-column">
-      <img class="author-image"
-        src="http://www.gravatar.com/avatar/2068ecb35d78f7ea67c6624fba147870">
-      <h1 class="author-name">Sandy Vanderbleek</h1>
-      <h2 class="author-title">Software Engineer</h2>
-      <a href="//github.com/svanderbleek?tab=activity">Open Source Contributions</a>
-    </div>
-    <div class="blog-content right-column">
-      {{ content }}
-    </div>
   <body>
+    <div class="centered-page">
+      <div class="author-info left-column">
+        <img class="author-image"
+          src="http://www.gravatar.com/avatar/2068ecb35d78f7ea67c6624fba147870">
+        <h1 class="author-name">Sandy Vanderbleek</h1>
+        <h2 class="author-title">Software Engineer</h2>
+        <a href="//github.com/svanderbleek?tab=activity">Open Source Contributions</a>
+      </div>
+      <div class="blog-content right-column">
+        {{ content }}
+      </div>
+    </div>
   </body>
 </html>
