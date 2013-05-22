@@ -1,0 +1,21 @@
+body {
+  font-family: Helvetica;
+}
+
+.author-info.left-column {
+  text-align: right;
+  padding: 20px;
+  float: left;
+}
+
+.blog-content.right-column {
+  padding-top: 10px;
+}
+
+.blog-posts {
+  list-style: none;
+}
+
+.author-image {
+  border-radius: 95px;
+}
