@@ -1,0 +1,47 @@
+---
+layout: post
+title: Quick Dsls
+---
+
+<p>
+There are some cool DSL micro-frameworks in Ruby but sometimes you want to make something really quick on your own, and make it clear, I try to avoid unnecessary meta programming to improve readability. Here's a method I came up with to use a simple temporary vanilla Object as context for a Module only DSL with variables.
+</p>
+
+<!-- more -->
+
+<p>
+First define the DSL attributes that will be set and methods that will use those attributes
+</p>
+
+<p class="code-paragraph">
+module MyDSL
+  def self.define(&block)
+      context = Object.new
+      context.send(:extend, self)
+      context.instance_eval(&block)
+    end
+
+    def some_attribute(value=nil)
+      name ? @some_attribute = value : @some_attribute
+    end
+
+    def some_method
+      ...
+    end
+
+    private
+
+    ...
+end
+</p>
+
+<p>
+Then use it! Fairly painless, no?
+</p>
+
+<p class="code-paragraph">
+MyDSL.define do
+  some_attribute 'value'
+  some_method
+end
+</p>

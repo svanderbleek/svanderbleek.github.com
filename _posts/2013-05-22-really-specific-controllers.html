@@ -4,7 +4,13 @@ title: Really Specific Controllers
 ---
 
 <p>
-Use
+As a web developer beautiful resource routes are important, especially when using Rails which makes it very easy to think resourcefully. An early principle I learned was not to nest resources deeper than two levels. I've refined this position in my own use to follow a pattern of deffering sub-resource management to a specific sub-resource controller but allowing creation namespaced by the creating resource, which acts like a context for filling in the sub-resources parameters.
+</p>
+
+<!-- more -->
+
+<p>
+So Use
 </p>
 
 <p class="code-paragraph">
@@ -12,19 +18,21 @@ resource/sub-resource/new
 </p>
 
 <p>
-for creation form then post to
+for a creation form then post to
 </p>
 
 <p class="code-paragraph">
 sub-resource
 </p>
 
-<!-- more -->
-
 <p>
-for database creation and continue with
+for actual database creation and continue with
 </p>
 
 <p class="code-paragraph">
 sub-resource/:id
+</p>
+
+<p>
+for manipulation.
 </p>
