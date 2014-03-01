@@ -60,7 +60,7 @@ body {
 
   .mobile-group {
     display: inline-block;
-    margin: 0 auto;
+    text-align: left;
   }
 
   .author-image {
