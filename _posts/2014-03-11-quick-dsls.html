@@ -1,0 +1,22 @@
+---
+layout: post
+title: Dividing Services
+---
+
+<p>
+Separating services into individual processes increases mean time to failure. Failure can not be avoided. MTTF should not always be absolutely optimized.
+</p>
+
+<!-- more -->
+
+<p>
+By separating services the probablity is nearly zero that you experience total failure. Where failure can be tolerated with one or the other but not both services this is advantageous. Software written to consume multiple services and handle failure will maintain stability in the face of unavoidable failure. 
+</p>
+
+<p>
+For example transaction logging could be taken external to the database process. Even if it duplicates database vendor functionality it creates redudancy and a bridge service. The logging service could be used to recreate the database using another vendor if the database becomes unreliable.
+</p>
+
+<p>
+Operational thinking must consider swapping services rapidly for release engineering. Near real time control of component decisions can reduce MTTF in catasrophic instances.
+</p>
