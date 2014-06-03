@@ -1,0 +1,38 @@
+---
+layout: post
+title: Composability
+---
+
+<p>
+When writing interfaces or even Class and Module internals
+we are working with building blocks that are composed togther.
+The control structures, data, and function argument forms will
+be applied to each other and we desire to create the minimum amount
+of functionality while maximizing flexibility.
+</p>
+
+<p>
+It is a very good feeling when a change in a feature or a new feature
+can be implemented by composing what already exists with a few modifications.
+The more modifications that must be made the less satisfactory our original
+solution appears.
+</p>
+
+<p>
+How do we measure this feeling? Recently while programming I noticed
+when things were humming along I could write a quick function on top of others,
+refactor a method to take a function to fufill an additional requirement, and so on.
+The basic building blocks were sound. I wonder given tools that move code around
+to ensure that tests can really be broken, the idea of mutating software, if
+"composability" can be tested the same way.
+</p>
+
+<p>
+The basic idea is that as modeled objects, functions, data, and control can be manipulated
+intelligently (ie not just munging text around) so that composability is measured
+as the fraction of runnable results over the total attempts at composing new programs
+from existing code. Composability would thus be a probability that existing code
+can be manipulated under defined operations to produce more working code. Operations
+would be function composition, chaining, applying to the plural or singular, joining data structures,
+etc.
+</p>
